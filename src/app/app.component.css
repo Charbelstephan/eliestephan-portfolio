@@ -1,0 +1,274 @@
+/* Site Wrapper */
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #EDEDED;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+
+.site-main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.site-main > .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 75rem;
+  padding: 0 2rem;
+}
+
+/* Container Component Base */
+.container-component {
+  position: relative;
+  width: 100%;
+  margin: 0;
+}
+
+.container-component > .wrapper {
+  width: 100%;
+}
+
+.container-component > .wrapper > .inner {
+  vertical-align: top;
+  position: relative;
+  max-width: 100%;
+  border-radius: inherit;
+}
+
+/* Header Container */
+.header-container {
+  padding: 2rem 0;
+}
+
+.header-container > .wrapper > .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Gallery Container */
+.gallery-container {
+  padding: 2rem 0;
+}
+
+.gallery-container > .wrapper > .inner {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.gallery-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex: 1;
+  max-width: 35rem;
+}
+
+/* Image Component */
+.image-component {
+  display: block;
+  line-height: 0;
+  max-width: 100%;
+  position: relative;
+}
+
+.image-component .frame {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: top;
+  width: 100%;
+  background-color: #ddd;
+}
+
+.image-component .frame img {
+  border-radius: 0;
+  max-width: 100%;
+  vertical-align: top;
+  width: 100%;
+  height: auto;
+}
+
+/* About Container */
+.about-container {
+  padding: 2rem 0;
+}
+
+.about-container > .wrapper > .inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 47rem;
+  text-align: justify;
+}
+
+/* Footer Container */
+.footer-container {
+  padding: 2rem 0;
+}
+
+.footer-container > .wrapper > .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Text Styles */
+.text-style-1 {
+  text-align: left;
+  color: #000000;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5em;
+  line-height: 1.5;
+  font-weight: 300;
+  letter-spacing: 0;
+}
+
+.text-style-2 {
+  text-align: left;
+  color: #000000;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125em;
+  line-height: 1.5;
+  font-weight: 300;
+  letter-spacing: 0;
+}
+
+.text-style-3 {
+  text-align: left;
+  color: #000000;
+  font-family: 'Inter', sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+  font-weight: 300;
+  letter-spacing: 0;
+}
+
+/* Links Component */
+.links-component {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0;
+  line-height: 1.5;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+
+.links-component li a {
+  text-decoration: underline;
+  transition: color 0.25s ease;
+}
+
+.links-component li a:hover {
+  color: #333333;
+  text-decoration: none;
+}
+
+.links-style-1 {
+  justify-content: flex-start;
+  gap: 2rem;
+  font-size: 1em;
+  color: #000000;
+}
+
+.links-style-1 a {
+  color: #000000;
+}
+
+.links-style-2 {
+  justify-content: flex-end;
+  gap: 2rem;
+  font-size: 1em;
+  color: #000000;
+}
+
+.links-style-2 a {
+  color: #000000;
+}
+
+/* Icons Component */
+.icons-component {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.75em;
+  gap: 0.75rem;
+}
+
+.icons-component li a {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 1em;
+  width: 1em;
+  transition: color 0.25s ease;
+}
+
+.icons-component li a svg {
+  height: 100%;
+  width: 100%;
+  fill: #000000;
+  transition: fill 0.25s ease;
+}
+
+.icons-component li a:hover svg {
+  fill: #333333;
+}
+
+/* Responsive Design */
+@media (max-width: 980px) {
+  :host {
+    font-size: 11pt;
+  }
+
+  .gallery-container > .wrapper > .inner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-column {
+    max-width: 100%;
+  }
+
+  .header-container > .wrapper > .inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .footer-container > .wrapper > .inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 736px) {
+  :host {
+    font-size: 11pt;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-main > .inner {
+    padding: 0 1.5rem;
+  }
+
+  .icons-component {
+    gap: 0.5625rem;
+  }
+}
