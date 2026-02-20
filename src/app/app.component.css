@@ -272,3 +272,53 @@
     gap: 0.5625rem;
   }
 }
+
+/* Sticky Icons (mobile only) */
+.sticky-icons {
+  display: none;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  flex-direction: row;
+  gap: 0.75rem;
+  z-index: 1000;
+}
+
+.sticky-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.sticky-icon svg {
+  width: 2rem;
+  height: 2rem;
+  fill: #ffffff;
+}
+
+.sticky-icon:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-sticky {
+  background-color: #25D366;
+}
+
+.instagram-sticky {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+@media (max-width: 980px) {
+  .sticky-icons {
+    display: flex;
+  }
+
+  .footer-container .icons-component {
+    display: none;
+  }
+}
