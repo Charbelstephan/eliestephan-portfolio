@@ -37,6 +37,9 @@ yarn-error.log
 testem.log
 /typings
 
+# API (server-side, deployed separately)
+/api
+
 # System files
 .DS_Store
 Thumbs.db
