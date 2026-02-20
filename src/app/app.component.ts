@@ -13,11 +13,13 @@ export class AppComponent implements OnInit {
   private facebookService = inject(FacebookService);
 
   images: FacebookPhoto[] = [];
+  imageColumns: FacebookPhoto[][] = [];
   formData = { email: '' };
 
   ngOnInit(): void {
     this.facebookService.getPhotos().subscribe((photos) => {
       this.images = photos;
+      this.imageColumns = this.buildColumns(photos);
     });
   }
 
@@ -25,9 +27,9 @@ export class AppComponent implements OnInit {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   }
 
-  getImageColumns(): FacebookPhoto[][] {
+  private buildColumns(images: FacebookPhoto[]): FacebookPhoto[][] {
     const cols: FacebookPhoto[][] = [[], [], []];
-    this.images.forEach((img, i) => {
+    images.forEach((img, i) => {
       cols[i % 3].push(img);
     });
     return cols;

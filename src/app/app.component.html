@@ -24,7 +24,7 @@
             <h1 id="text02" class="text-style-1">Elie Estephan</h1>
             <ul id="links01" class="links-component links-style-2">
               <li><a (click)="scrollTo('about')" style="cursor: pointer;">About</a></li>
-              <li><a href="mailto:user@domain.ext">Contact</a></li>
+              <li><a href="mailto:info@eliestephan.com">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -34,7 +34,7 @@
       <div id="container01" class="container-component gallery-container">
         <div class="wrapper">
           <div class="inner">
-            <div *ngFor="let col of getImageColumns(); let colIdx = index" class="gallery-column">
+            <div *ngFor="let col of imageColumns; let colIdx = index" class="gallery-column">
               <div *ngFor="let image of col" class="image-component">
                 <div class="frame">
                   <img [src]="image.src" [alt]="image.alt" loading="lazy">
