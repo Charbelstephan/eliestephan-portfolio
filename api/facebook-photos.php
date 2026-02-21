@@ -20,7 +20,7 @@ if (file_exists($cacheFile)) {
 }
 
 // Cache expired or doesn't exist — fetch fresh data
-$pageToken = getPageAccessToken();
+$pageToken = getAccessToken();
 
 if (!$pageToken) {
     // If authentication fails, serve stale cache if available

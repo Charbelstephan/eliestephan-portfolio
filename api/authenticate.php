@@ -2,16 +2,17 @@
 require_once __DIR__ . '/config.php';
 
 /**
- * Fetches a fresh Page Access Token using the long-lived User Access Token.
- * The Page Access Token obtained via /me/accounts with a long-lived user token
- * is itself a long-lived (never-expiring) page token.
+ * Returns an App Access Token using client credentials.
+ * This token never expires and can be used to fetch public page posts.
  */
-function getPageAccessToken(): ?string {
-    global $userAccessToken, $pageId;
+function getAccessToken(): ?string {
+    global $appId, $appSecret;
 
-    $url = "https://graph.facebook.com/v19.0/me/accounts?"
+    $url = "https://graph.facebook.com/oauth/access_token?"
         . http_build_query([
-            'access_token' => $userAccessToken,
+            'client_id' => $appId,
+            'client_secret' => $appSecret,
+            'grant_type' => 'client_credentials',
         ]);
 
     $ch = curl_init();
@@ -31,17 +32,5 @@ function getPageAccessToken(): ?string {
     }
 
     $data = json_decode($response, true);
-
-    if (!isset($data['data'])) {
-        return null;
-    }
-
-    // Find the matching page and return its access token
-    foreach ($data['data'] as $page) {
-        if ($page['id'] === $pageId) {
-            return $page['access_token'];
-        }
-    }
-
-    return null;
+    return $data['access_token'] ?? null;
 }
