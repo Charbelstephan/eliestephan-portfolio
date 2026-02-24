@@ -4,7 +4,7 @@
   flex-direction: column;
   min-height: 100vh;
   background-color: #EDEDED;
-  font-family: 'Inter', sans-serif;
+
   font-weight: 300;
 }
 
@@ -126,17 +126,23 @@
 .text-style-1 {
   text-align: left;
   color: #000000;
-  font-family: 'Inter', sans-serif;
+
   font-size: 1.5em;
   line-height: 1.5;
   font-weight: 300;
   letter-spacing: 0;
 }
 
+.brand-logo {
+  display: block;
+  height: 2.5em;
+  width: auto;
+}
+
 .text-style-2 {
   text-align: left;
   color: #000000;
-  font-family: 'Inter', sans-serif;
+
   font-size: 1.125em;
   line-height: 1.5;
   font-weight: 300;
@@ -146,7 +152,7 @@
 .text-style-3 {
   text-align: left;
   color: #000000;
-  font-family: 'Inter', sans-serif;
+
   font-size: 1em;
   line-height: 1.5;
   font-weight: 300;
@@ -162,7 +168,7 @@
   margin: 0;
   letter-spacing: 0;
   line-height: 1.5;
-  font-family: 'Inter', sans-serif;
+
   font-weight: 300;
 }
 

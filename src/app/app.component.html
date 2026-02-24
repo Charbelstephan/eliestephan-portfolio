@@ -21,7 +21,7 @@
       <div id="container02" class="container-component header-container">
         <div class="wrapper">
           <div class="inner">
-            <h1 id="text02" class="text-style-1">Elie Estephan</h1>
+            <h1 id="text02" class="text-style-1"><img src="brand.svg" alt="Elie Estephan" class="brand-logo"></h1>
             <ul id="links01" class="links-component links-style-2">
               <li><a (click)="scrollTo('about')" style="cursor: pointer;">About</a></li>
               <li><a href="mailto:info@eliestephan.com">Contact</a></li>
@@ -38,6 +38,11 @@
               <div *ngFor="let image of col" class="image-component">
                 <div class="frame">
                   <img [src]="image.src" [alt]="image.alt" loading="lazy">
+                </div>
+              </div>
+              <div *ngIf="colIdx === 0" class="image-component">
+                <div class="frame">
+                  <img src="artist.jpg" alt="Elie Estephan" loading="lazy">
                 </div>
               </div>
             </div>
