@@ -41,4 +41,7 @@ testem.log
 .DS_Store
 Thumbs.db
 deploy.js
-api/config.php
+
+# Original full-resolution photos (web-optimized copies in MakeupImages/web are tracked)
+public/MakeupImages/*.JPG
+public/MakeupImages/*.jpg
