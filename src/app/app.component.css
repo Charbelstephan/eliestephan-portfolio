@@ -197,19 +197,12 @@
     display: grid;
     height: 100vh;
     min-height: 40rem;
-    grid-template-columns: minmax(0, 2.05fr) minmax(0, 1fr) 3.5rem;
+    grid-template-columns: minmax(0, 2.05fr) minmax(0, 1fr);
     grid-template-rows: auto 1fr auto;
     grid-template-areas:
-      "header  bio strip"
-      "gallery bio strip"
-      "footer  bio strip";
-  }
-
-  /* Gray backdrop lives only in its own strip at the right screen edge */
-  .page::after {
-    content: "";
-    grid-area: strip;
-    background: #e9e9e9;
+      "header  bio"
+      "gallery bio"
+      "footer  bio";
   }
 
   /* Header */
@@ -286,7 +279,7 @@
 
   .bio-card {
     background: #fff;
-    padding: 5rem 2.75rem 3rem;
+    padding: 5rem 3.5rem 3rem 2.75rem;
     width: 100%;
     display: flex;
     flex-direction: column;
