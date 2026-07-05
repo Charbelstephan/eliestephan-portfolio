@@ -5,6 +5,23 @@
   margin: 0 auto;
   padding: 1.5rem 1.25rem 2rem;
   background: #fff;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  column-gap: 1rem;
+  grid-template-areas:
+    "header header"
+    "gallery gallery"
+    "label   label"
+    "text    photo"
+    "footer  photo";
+}
+
+.site-header {
+  grid-area: header;
+}
+
+.gallery {
+  grid-area: gallery;
 }
 
 .page .only-desktop {
@@ -111,25 +128,26 @@
   aspect-ratio: 4 / 5;
 }
 
-/* Bio */
+/* Bio: wrappers dissolve on mobile so text, photo, and footer share the page grid */
+.bio-panel,
+.bio-card,
+.bio-body {
+  display: contents;
+}
+
 .bio-label {
+  grid-area: label;
   text-align: center;
   letter-spacing: 0.3em;
   font-size: 0.75rem;
   margin: 2.25rem 0 1.25rem;
 }
 
-.bio-body {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  align-items: start;
-}
-
 .bio-text {
+  grid-area: text;
   text-align: right;
-  font-size: 0.8rem;
-  font-weight: 300;
+  font-size: 0.675rem;
+  font-weight: 200;
   line-height: 1.55;
   display: flex;
   flex-direction: column;
@@ -141,36 +159,49 @@
 }
 
 .artist-photo {
+  grid-area: photo;
   width: 100%;
-  height: 100%;
+  height: 0;
+  min-height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* Footer */
+/* Footer: sits beside the artist photo, line inline left of the location */
 .site-footer {
-  margin-top: 2.5rem;
+  grid-area: footer;
+  align-self: end;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 0.9rem;
+  row-gap: 0.9rem;
+}
+
+.footer-rule {
+  flex: 1;
+  margin: 0;
 }
 
 .footer-row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.9rem;
-  padding-top: 1.25rem;
+  display: contents;
 }
 
 .footer-location {
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  white-space: nowrap;
 }
 
 .footer-links {
+  flex-basis: 100%;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  gap: 1.5rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
+  gap: 0.65rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
 }
 
 .footer-links a {
@@ -181,7 +212,7 @@
 
 .footer-links .enquire {
   border: 1px solid var(--line-color);
-  padding: 0.35rem 0.8rem;
+  padding: 0.25rem 0.5rem;
 }
 
 /* ---------- Desktop (two-panel layout) ---------- */
@@ -241,29 +272,47 @@
   /* Footer */
   .site-footer {
     grid-area: footer;
+    align-self: auto;
     margin: 0;
     padding: 0 3.5rem 2.5rem;
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
     gap: 2rem;
   }
 
-  .footer-rule {
-    flex: 1;
-    margin: 0;
-  }
-
   .footer-row {
+    display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     gap: 2rem;
-    padding-top: 0;
     width: max-content;
   }
 
   .footer-links {
+    flex-basis: auto;
+  }
+
+  .footer-links {
     gap: 1.75rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+  }
+
+  .footer-location {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+  }
+
+  .footer-links .enquire {
+    padding: 0.35rem 0.8rem;
+  }
+
+  .bio-panel,
+  .bio-card,
+  .bio-body {
+    display: flex;
   }
 
   .page .footer-icons {
