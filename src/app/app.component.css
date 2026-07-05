@@ -243,10 +243,14 @@
     grid-area: footer;
     margin: 0;
     padding: 0 3.5rem 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
   }
 
   .footer-rule {
-    display: none;
+    flex: 1;
+    margin: 0;
   }
 
   .footer-row {
@@ -254,10 +258,8 @@
     justify-content: flex-end;
     align-items: center;
     gap: 2rem;
-    padding-top: 1rem;
+    padding-top: 0;
     width: max-content;
-    margin-left: auto;
-    border-top: 1px solid #c9c9c9;
   }
 
   .footer-links {
