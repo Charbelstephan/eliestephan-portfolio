@@ -189,7 +189,7 @@
 }
 
 .footer-location {
-  font-size: 0.55rem;
+  font-size: 0.48rem;
   letter-spacing: 0.15em;
   white-space: nowrap;
 }
@@ -200,7 +200,7 @@
   justify-content: flex-end;
   align-items: center;
   gap: 0.65rem;
-  font-size: 0.55rem;
+  font-size: 0.48rem;
   letter-spacing: 0.08em;
 }
 
