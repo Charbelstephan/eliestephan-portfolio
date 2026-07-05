@@ -60,7 +60,7 @@
 .header-rule,
 .footer-rule {
   border: 0;
-  border-top: 1px solid #c9c9c9;
+  border-top: 1px solid var(--line-color);
 }
 
 .header-rule {
@@ -180,7 +180,7 @@
 }
 
 .footer-links .enquire {
-  border: 1px solid #c9c9c9;
+  border: 1px solid var(--line-color);
   padding: 0.35rem 0.8rem;
 }
 
@@ -294,6 +294,9 @@
     gap: 0;
     flex: 1;
     min-height: 0;
+    padding-inline: 2rem;
+    border-left: 1px solid var(--line-color);
+    border-right: 1px solid var(--line-color);
   }
 
   .bio-text {
@@ -313,7 +316,7 @@
   .bio-rule hr {
     flex: 1;
     border: 0;
-    border-top: 1px solid #c9c9c9;
+    border-top: 1px solid var(--line-color);
     margin: 0;
   }
 
