@@ -82,7 +82,8 @@
 .footer-icons svg {
   width: 1.35rem;
   height: 1.35rem;
-  fill: #1a1a1a;
+  fill: var(--ink);
+  color: var(--ink);
   display: block;
 }
 
@@ -162,7 +163,7 @@
   grid-area: text;
   color: var(--ink-body);
   text-align: right;
-  font-size: 0.675rem;
+  font-size: 0.73rem;
   font-weight: 200;
   line-height: 1.55;
   display: flex;
@@ -213,27 +214,6 @@
   font-size: 0.48rem;
   letter-spacing: 0.15em;
   white-space: nowrap;
-}
-
-.footer-links {
-  flex-basis: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 0.65rem;
-  font-size: 0.48rem;
-  letter-spacing: 0.08em;
-}
-
-.footer-links a {
-  color: var(--ink);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.footer-links .enquire {
-  border: 1px solid var(--line-color);
-  padding: 0.25rem 0.5rem;
 }
 
 /* ---------- Desktop (two-panel layout) ---------- */
@@ -368,22 +348,10 @@
     width: max-content;
   }
 
-  .footer-links {
-    flex-basis: auto;
-    gap: 0.57vw;
-    font-size: clamp(0.55rem, 0.63vw, 0.85rem);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-  }
-
   .footer-location {
     font-size: clamp(0.55rem, 0.59vw, 0.8rem);
     letter-spacing: 0.06em;
     color: var(--ink);
-  }
-
-  .footer-links .enquire {
-    padding: 0.35rem 0.8rem;
   }
 
   .page .footer-icons {
@@ -435,16 +403,16 @@
 
   .bio-text {
     text-align: justify;
-    font-size: clamp(0.58rem, 0.58vw, 0.78rem);
+    font-size: 0.8rem;
     line-height: 1.32;
-    gap: 0.93vh;
+    gap: 0.43vh;
   }
 
   .page .bio-rule {
     display: flex;
     align-items: center;
     gap: 1.3vw;
-    margin: 3.7vh 0 4.6vh;
+    margin: 2vh 0 2vh;
     font-size: clamp(0.6rem, 0.63vw, 0.8rem);
     letter-spacing: 0.12em;
     color: var(--ink);
