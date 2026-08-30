@@ -5,6 +5,10 @@
 
 :root {
     --line-color: #e0e0e0;
+    /* One ink for every word on the page: the grey of the brand mark itself.
+       Hierarchy comes from weight and size, not from darker text. */
+    --ink: #808285;
+    --ink-body: #868a8d;
 }
 
 /* CSS Reset */
