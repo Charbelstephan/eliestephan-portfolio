@@ -67,12 +67,16 @@
   text-align: right;
   margin-right: calc(0.227rem - 0.3em);
   margin-top: 0.4rem;
+  font-weight: 500;
   color: var(--ink);
 }
 
+/* Icons centre on the wordmark, not on the header box: the logo starts at the
+   header's 0.5rem padding-top and runs 3.9rem, so its middle sits at 2.45rem —
+   less half an icon (1.35rem) to get the top edge. */
 .header-icons {
   position: absolute;
-  top: 0.9rem;
+  top: calc(0.5rem + 3.9rem / 2 - 1.35rem / 2);
   right: 0;
   display: flex;
   gap: 0.5rem;
@@ -268,6 +272,8 @@
     letter-spacing: 0.31em;
     margin-right: calc(0.279vw - 0.31em);
     margin-top: -0.94vw;
+    /* Medium is a mobile-only weight: at desktop size the tagline reads heavy */
+    font-weight: 400;
   }
 
   .page .header-rule {
