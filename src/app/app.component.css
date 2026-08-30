@@ -7,12 +7,15 @@
   background: #fff;
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  /* Equal columns on the same 1rem gap as .gallery, so the page gutter lands on
+     the gallery's gutter: the artist photo then shares its edges with the right
+     gallery column, and the bio text with the left one. */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   column-gap: 1rem;
   grid-template-areas:
     "header header"
     "gallery gallery"
-    "label   ."
+    "label   photo"
     "text    photo"
     "footer  photo";
 }
@@ -57,17 +60,16 @@
   display: block;
 }
 
-/* The tagline ends flush with the N of STEPHAN, not with the logo file's edge:
-   brand.svg carries 4.89 of its 292 viewBox units as padding after the N, which
-   is 1.675% of the mark's width, or 0.227em of its height. The right margin is
-   that inset less the trailing letter-space the last glyph would otherwise sit on. */
+/* Mobile draws the tagline inside brand-lockup.svg, so the live text is hidden
+   visually but kept in the DOM — screen readers and translation tools still get
+   it, and it is not announced twice since the mark's alt is just the name. */
 .brand-tagline {
-  font-size: 0.5rem;
-  letter-spacing: 0.3em;
-  text-align: right;
-  margin-right: calc(0.227rem - 0.3em);
-  margin-top: 0.4rem;
-  font-weight: 500;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
   color: var(--ink);
 }
 
@@ -108,7 +110,10 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1rem;
-  margin-top: 1.5rem;
+  /* The trailing space belongs to the gallery, not to .bio-label: the photo now
+     spans the label row, so a top margin on the label would drop the label
+     without moving the photo. Put it here and both start on the same line. */
+  margin: 1.5rem 0 2.25rem;
 }
 
 .gallery img {
@@ -160,16 +165,19 @@
   text-align: right;
   letter-spacing: 0.3em;
   font-size: 0.75rem;
-  margin: 2.25rem 0 1.25rem;
+  margin: 0 0 1.25rem;
 }
 
 .bio-text {
   grid-area: text;
   color: var(--ink-body);
-  text-align: right;
+  /* Justified, with each paragraph's last line pulled right so the block still
+     resolves to the right edge the way the label and footer do. */
+  text-align: justify;
+  text-align-last: right;
   font-size: 0.73rem;
   font-weight: 200;
-  line-height: 1.55;
+  line-height: 1.1;
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
@@ -272,8 +280,14 @@
     letter-spacing: 0.31em;
     margin-right: calc(0.279vw - 0.31em);
     margin-top: -0.94vw;
-    /* Medium is a mobile-only weight: at desktop size the tagline reads heavy */
     font-weight: 400;
+    /* undo the mobile visually-hidden treatment — desktop renders it as real text */
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
   }
 
   .page .header-rule {
@@ -409,6 +423,8 @@
 
   .bio-text {
     text-align: justify;
+    /* last-line pull is mobile-only; desktop keeps its ragged last line */
+    text-align-last: auto;
     font-size: 0.8rem;
     line-height: 1.32;
     gap: 0.43vh;

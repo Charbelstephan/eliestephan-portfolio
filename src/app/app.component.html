@@ -21,7 +21,14 @@
   <!-- Header -->
   <header class="site-header">
     <div class="brand">
-      <img src="brand.svg" alt="Elie Stephan" class="brand-logo">
+      <!-- Mobile uses the full lockup: the tagline is outlined into the SVG, so it
+           sits flush with the N at every width with no CSS tuning. Desktop keeps
+           the wordmark-only mark and sets the tagline as live text beside the rule.
+           <picture> (not two <img>s) so only the matching file is fetched. -->
+      <picture>
+        <source media="(min-width: 1024px)" srcset="brand.svg">
+        <img src="brand-lockup.svg" alt="Elie Stephan" class="brand-logo">
+      </picture>
       <p class="brand-tagline">BRIDAL MAKEUP &amp; BEAUTY</p>
     </div>
     <hr class="header-rule only-desktop">
