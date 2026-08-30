@@ -357,12 +357,12 @@
   .page .footer-icons {
     display: flex;
     margin-left: 2.8vw;
-    gap: 0.47vw;
+    gap: 0.6vw;
   }
 
   .page .footer-icons svg {
-    width: clamp(0.9rem, 1vw, 1.4rem);
-    height: clamp(0.9rem, 1vw, 1.4rem);
+    width: clamp(1.1rem, 1.3vw, 1.8rem);
+    height: clamp(1.1rem, 1.3vw, 1.8rem);
   }
 
   .bio-panel,
